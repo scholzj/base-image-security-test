@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: scholzj/circleci-centos-java:latest
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Build project
+          command: TME_INDEX=$(date +"%Y-%m-%d-%H-%M-%S") make all
+workflows:
+  version: 2
+  build-workflow:
+    jobs:
+      - build:
+            context: org-global

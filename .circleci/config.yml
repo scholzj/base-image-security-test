@@ -1,6 +1,10 @@
 version: 2
 jobs:
   build:
+    environment:
+      DOCKER_ORG: scholzj
+      DOCKER_IMAGE: base-image-security-test
+      DOCKER_REGISTRY: quay.io
     docker:
       - image: scholzj/circleci-centos-java:latest
     steps:
